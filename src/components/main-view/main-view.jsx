@@ -5,6 +5,14 @@ import { MovieView } from "../movie-view/movie-view";
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
 
+  useEffect(() => {
+    fecth("https://git.heroku.com/movie-api33.git")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log("movies from api:", data);
+    });
+  }, []);
+
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   if (selectedMovie) {
