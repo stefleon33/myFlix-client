@@ -9,7 +9,23 @@ export const MainView = () => {
     fecth("https://git.heroku.com/movie-api33.git")
     .then((response) => response.json())
     .then((data) => {
-        console.log("movies from api:", data);
+        const moviesFromApi = data.docs.map((doc) => {
+            return {
+                id: doc.id,
+                image: doc.imagePath,
+                title: doc.title,
+                description: doc.description,
+                genre: doc.genre.name,
+                description: doc.genre.description,
+                director: doc.director.name,
+                bio: doc.director.bio,
+                birth: doc.director.birth,
+                death: doc.director.death,
+                featured: doc.featured
+            };
+        });
+
+        setMovies(moviesFromApi);
     });
   }, []);
 
