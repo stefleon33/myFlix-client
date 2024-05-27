@@ -27386,16 +27386,16 @@ const MainView = ()=>{
             const moviesFromApi = data.movies.map((movie)=>{
                 return {
                     id: movie.id,
-                    image: movie.imagePath,
-                    title: movie.title,
-                    description: movie.description,
-                    genre: movie.genre.name,
-                    description: movie.genre.description,
-                    director: movie.director.name,
-                    bio: movie.director.bio,
-                    birth: movie.director.birth,
-                    death: movie.director.death,
-                    featured: movie.featured
+                    image: movie.ImagePath,
+                    title: movie.Title,
+                    description: movie.Description,
+                    genre: movie.Genre.Name,
+                    description: movie.Genre.Description,
+                    director: movie.Director.Name,
+                    bio: movie.Director.Bio,
+                    birth: movie.Director.Birth,
+                    death: movie.Director.Death,
+                    featured: movie.Featured
                 };
             });
             setMovies(moviesFromApi);
