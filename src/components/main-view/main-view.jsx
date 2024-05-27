@@ -6,9 +6,7 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch("https://git.heroku.com/movie-api33.git", {
-        headers: { Authorization: `Bearer ${token}` }
-    })
+    fetch("https://git.heroku.com/movie-api33.git")
     .then((response) => response.json())
     .then((data) => {
         const moviesFromApi = data.docs.map((doc) => {
