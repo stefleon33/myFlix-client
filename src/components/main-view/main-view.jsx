@@ -9,7 +9,8 @@ export const MainView = () => {
     fetch("https://movie-api33-c32ceac54882.herokuapp.com/movies")
     .then((response) => response.json())
     .then((data) => {
-        const moviesFromApi = data.movies.map((movie) => {
+        //console.log("movies from api:", data);
+        const moviesFromApi = data.map((movie) => {
             return {
                 id: movie.id,
                 image: movie.ImagePath,
