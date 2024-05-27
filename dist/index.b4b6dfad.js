@@ -27382,7 +27382,7 @@ const MainView = ()=>{
     _s();
     const [movies, setMovies] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
-        fetch("https://git.heroku.com/movie-api33.git").then((response)=>response.json()).then((data)=>{
+        fetch("https://movie-api33-c32ceac54882.herokuapp.com/").then((response)=>response.json()).then((data)=>{
             const moviesFromApi = data.docs.map((doc)=>{
                 return {
                     id: doc.id,
