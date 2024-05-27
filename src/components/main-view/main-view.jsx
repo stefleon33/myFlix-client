@@ -16,15 +16,12 @@ export const MainView = () => {
                 image: movie.ImagePath,
                 title: movie.Title,
                 description: movie.Description,
-                genre: movie.Genre.Name,
-                description: movie.Genre.Description,
-                director: movie.Director.Name,
-                bio: movie.Director.Bio,
-                birth: movie.Director.Birth,
-                death: movie.Director.Death,
-                featured: movie.Featured
+                genre: { name: movie.Genre.Name, description: movie.Genre.Description },
+                director: { name: movie.Director.Name, bio: movie.Director.Bio, birth: movie.Director.Birth, death: movie.Director.Death },
+                featured: movie.Featured,
             };
         });
+        
 
         setMovies(moviesFromApi);
     });
