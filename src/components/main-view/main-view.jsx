@@ -12,7 +12,7 @@ export const MainView = () => {
         //console.log("movies from api:", data);
         const moviesFromApi = data.map((movie) => {
             return {
-                id: movie.id,
+                id: movie._id,
                 image: movie.ImagePath,
                 title: movie.Title,
                 description: movie.Description,
