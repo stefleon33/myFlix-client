@@ -97,5 +97,4 @@ export const MainView = () => {
       ))}
     </div>
   );
- })
-}
+ }
