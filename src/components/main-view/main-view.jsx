@@ -21,10 +21,27 @@ export const MainView = () => {
      headers: { Authorization: `Bearer ${token}` },
    })
      .then((response) => response.json())
-     .then((movies) => {
-       setMovies(movies);
-
-     });
+     .then((data) => {
+      const moviesFromApi = data.map((movie)=>{
+        return {
+            id: movie._id,
+            image: movie.ImagePath,
+            title: movie.Title,
+            description: movie.Description,
+            genre: {
+                name: movie.Genre.Name,
+                description: movie.Genre.Description
+            },
+            director: {
+                name: movie.Director.Name,
+                bio: movie.Director.Bio,
+                birth: movie.Director.Birth,
+                death: movie.Director.Death
+            },
+            featured: movie.Featured
+        };
+    },
+       setMovies(moviesFromApi));
  }, [token]);
 
     if (!user) {
@@ -78,4 +95,5 @@ export const MainView = () => {
       ))}
     </div>
   );
+ })
 }
