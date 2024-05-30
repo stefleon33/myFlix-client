@@ -40,8 +40,8 @@ export const MainView = () => {
             },
             featured: movie.Featured
         };
-    },
-       setMovies(moviesFromApi));
+    });
+       setMovies(moviesFromApi);
  }, [token]);
 
     if (!user) {
