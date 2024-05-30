@@ -14,35 +14,37 @@ export const MainView = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
 
- useEffect(() => {
-   if (!token) return;
-
-   fetch("https://movie-api33-c32ceac54882.herokuapp.com/movies", {
-     headers: { Authorization: `Bearer ${token}` },
-   })
-     .then((response) => response.json())
-     .then((data) => {
-      const moviesFromApi = data.map((movie)=>{
-        return {
+  useEffect(() => {
+    if (!token) return;
+  
+    fetch("https://movie-api33-c32ceac54882.herokuapp.com/movies", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const moviesFromApi = data.map((movie) => {
+          return {
             id: movie._id,
             image: movie.ImagePath,
             title: movie.Title,
             description: movie.Description,
             genre: {
-                name: movie.Genre.Name,
-                description: movie.Genre.Description
+              name: movie.Genre.Name,
+              description: movie.Genre.Description,
             },
             director: {
-                name: movie.Director.Name,
-                bio: movie.Director.Bio,
-                birth: movie.Director.Birth,
-                death: movie.Director.Death
+              name: movie.Director.Name,
+              bio: movie.Director.Bio,
+              birth: movie.Director.Birth,
+              death: movie.Director.Death,
             },
-            featured: movie.Featured
-        };
-    });
-       setMovies(moviesFromApi);
- }, [token]);
+            featured: movie.Featured,
+          };
+        });
+        setMovies(moviesFromApi);
+      });
+  }, [token]);
+  
 
     if (!user) {
     return (
