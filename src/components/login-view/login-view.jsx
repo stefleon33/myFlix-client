@@ -9,30 +9,30 @@ export const LoginView = ({ onLoggedIn }) => {
     event.preventDefault();
 
     const data = {
-      access: username,
-      secret: password
-    };
-
-
-    fetch("https://movie-api33-c32ceac54882.herokuapp.com/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Login response: ", data);
-        if (data.user) {
-          onLoggedIn(data.user, data.token);
-        } else {
-          alert("No such user");
-        }
+        Username: username,
+        Password: password
+      };
+  
+      fetch("https://movie-api33-c32ceac54882.herokuapp.com/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
       })
-      .catch((e) => {
-        alert("Something went wrong");
-    });
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Login response: ", data);
+          if (data.user) {
+            onLoggedIn(data.user, data.token);
+          } else {
+            alert("No such user");
+          }
+        })
+        .catch((e) => {
+          alert("Something went wrong");
+        });
+     };
 
   return (
     <form onSubmit={handleSubmit}>
