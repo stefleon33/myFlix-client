@@ -10,7 +10,13 @@ export const MainView = () => {
   const [token, setToken] = useState(null);
 
   useEffect(() => {
-    fetch("https://movie-api33-c32ceac54882.herokuapp.com/movies")
+    if (!token) {
+        return;
+    }
+
+    fetch("https://movie-api33-c32ceac54882.herokuapp.com/movies", {
+      headers: { Authorization: `Bearer ${token}` }
+    })
     .then((response) => response.json())
     .then((data) => {
         //console.log("movies from api:", data);
@@ -24,7 +30,7 @@ export const MainView = () => {
                 director: { name: movie.Director.Name, bio: movie.Director.Bio, birth: movie.Director.Birth, death: movie.Director.Death },
                 featured: movie.Featured,
             };
-        });
+        }, [token]);
         
 
         setMovies(moviesFromApi);
@@ -54,6 +60,7 @@ export const MainView = () => {
         <button
           onClick={() => {
             setUser(null);
+            setToken(null);
           }}
         >
           Logout
