@@ -47,7 +47,7 @@ export const MainView = () => {
     );
   }
 
-  if (books.length === 0) {
+  if (movies.length === 0) {
     return (
       <>
         <button
