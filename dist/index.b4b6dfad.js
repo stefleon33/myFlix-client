@@ -27516,13 +27516,13 @@ MovieCard.propTypes = {
             bio: (0, _propTypesDefault.default).string,
             birth: (0, _propTypesDefault.default).string,
             death: (0, _propTypesDefault.default).string
-        }).isRequired,
+        }),
         genre: (0, _propTypesDefault.default).shape({
             name: (0, _propTypesDefault.default).string,
             description: (0, _propTypesDefault.default).string
-        }).isRequired,
+        }),
         featured: (0, _propTypesDefault.default).bool,
-        id: (0, _propTypesDefault.default).string.isRequired
+        id: (0, _propTypesDefault.default).string
     }).isRequired,
     onMovieClick: (0, _propTypesDefault.default).func.isRequired
 };
