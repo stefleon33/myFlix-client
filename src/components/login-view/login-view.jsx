@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-export const LoginView = () => {
+export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
   const handleSubmit = (event) => {
     // this prevents the default behavior of the form which is to reload the entire page
@@ -16,7 +16,13 @@ export const LoginView = () => {
     fetch("https://movie-api33-c32ceac54882.herokuapp.com/users", {
       method: "POST",
       body: JSON.stringify(data)
-    });
+    }).then((response) => {
+        if (response.ok) {
+          onLoggedIn(username);
+        } else {
+          alert("Login failed");
+        }
+      });
   };
 
   return (

@@ -27,7 +27,9 @@ export const MainView = () => {
     });
   }, []);
 
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  if (!user) {
+    return <LoginView onLoggedIn={(user) => setUser(user)} />;
+  }
 
   if (selectedMovie) {
     return (
