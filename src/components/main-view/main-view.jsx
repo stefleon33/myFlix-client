@@ -4,40 +4,28 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 
 export const MainView = () => {
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedToken = localStorage.getItem("token");
+  const [user, setUser] = useState(storedUser? storedUser : null);
+  const [token, setToken] = useState(storedToken? storedToken : null);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null);
 
-  useEffect(() => {
-    if (!token) {
-        return;
-    }
 
-    fetch("https://movie-api33-c32ceac54882.herokuapp.com/movies", {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        //console.log("movies from api:", data);
-        const moviesFromApi = data.map((movie) => {
-            return {
-                id: movie._id,
-                image: movie.ImagePath,
-                title: movie.Title,
-                description: movie.Description,
-                genre: { name: movie.Genre.Name, description: movie.Genre.Description },
-                director: { name: movie.Director.Name, bio: movie.Director.Bio, birth: movie.Director.Birth, death: movie.Director.Death },
-                featured: movie.Featured,
-            };
-        }, [token]);
-        
+ useEffect(() => {
+   if (!token) return;
 
-        setMovies(moviesFromApi);
-    });
-  }, []);
+   fetch("https://movie-api33-c32ceac54882.herokuapp.com/movies", {
+     headers: { Authorization: `Bearer ${token}` },
+   })
+     .then((response) => response.json())
+     .then((movies) => {
+       setMovies(movies);
 
-  if (!user) {
+     });
+ }, [token]);
+
+    if (!user) {
     return (
       <LoginView
         onLoggedIn={(user, token) => {
@@ -61,6 +49,7 @@ export const MainView = () => {
           onClick={() => {
             setUser(null);
             setToken(null);
+            localStorage.clear();
           }}
         >
           Logout
@@ -83,4 +72,4 @@ export const MainView = () => {
       ))}
     </div>
   );
-};
+}
