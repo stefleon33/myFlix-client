@@ -49,7 +49,6 @@ export const MainView = () => {
   }, [token]);
   
     return(
-      <Row>
       <Row className="justify-content-md-center">
         {!user ?(
         <>
