@@ -62,10 +62,12 @@ export const MainView = () => {
       <SignupView />
       </>
       ) : selectedMovie ? (
+        <Col md={8}>
           <MovieView 
             movie={selectedMovie} 
             onBackClick={() => setSelectedMovie(null)} 
           />
+        </Col>
        ) : movies.length === 0 ? (
           <div>The list is empty!</div>
        ) : ( 
