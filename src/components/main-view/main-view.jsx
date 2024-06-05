@@ -50,6 +50,7 @@ export const MainView = () => {
   
     return(
       <Row>
+      <Row className="justify-content-md-center">
         {!user ?(
         <>
       <LoginView
