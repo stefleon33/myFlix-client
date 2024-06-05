@@ -27437,62 +27437,67 @@ const MainView = ()=>{
     ]);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
         className: "justify-content-md-center",
-        children: !user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-                md: 5,
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
-                        onLoggedIn: (user, token)=>{
-                            setUser(user);
-                            setToken(token);
-                        }
-                    }, void 0, false, {
-                        fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 56,
-                        columnNumber: 7
-                    }, undefined),
-                    "or",
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
-                        fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 63,
-                        columnNumber: 7
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 55,
-                columnNumber: 9
-            }, undefined)
-        }, void 0, false) : selectedMovie ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+        children: !user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+            md: 5,
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
+                    onLoggedIn: (user, token)=>{
+                        setUser(user);
+                        setToken(token);
+                    }
+                }, void 0, false, {
+                    fileName: "src/components/main-view/main-view.jsx",
+                    lineNumber: 55,
+                    columnNumber: 13
+                }, undefined),
+                "or",
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
+                    fileName: "src/components/main-view/main-view.jsx",
+                    lineNumber: 62,
+                    columnNumber: 13
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 54,
+            columnNumber: 11
+        }, undefined) : selectedMovie ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
             md: 8,
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
                 movie: selectedMovie,
                 onBackClick: ()=>setSelectedMovie(null)
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 68,
-                columnNumber: 11
+                lineNumber: 66,
+                columnNumber: 13
             }, undefined)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 67,
-            columnNumber: 9
+            lineNumber: 65,
+            columnNumber: 11
         }, undefined) : movies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: "The list is empty!"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 74,
+            lineNumber: 72,
             columnNumber: 11
         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
             children: [
-                movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                        movie: movie,
-                        onMovieClick: (newSelectedMovie)=>{
-                            setSelectedMovie(newSelectedMovie);
-                        }
+                movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                        md: 3,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                            movie: movie,
+                            onMovieClick: (newSelectedMovie)=>{
+                                setSelectedMovie(newSelectedMovie);
+                            }
+                        }, void 0, false, {
+                            fileName: "src/components/main-view/main-view.jsx",
+                            lineNumber: 77,
+                            columnNumber: 15
+                        }, undefined)
                     }, movie.id, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 78,
+                        lineNumber: 76,
                         columnNumber: 13
                     }, undefined)),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -27504,7 +27509,7 @@ const MainView = ()=>{
                     children: "Logout"
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 86,
+                    lineNumber: 85,
                     columnNumber: 11
                 }, undefined)
             ]
@@ -27542,15 +27547,14 @@ var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactBootstrap = require("react-bootstrap");
 const MovieCard = ({ movie, onMovieClick })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+        className: "h-100",
         onClick: ()=>onMovieClick(movie),
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
                 variant: "top",
                 src: movie.image,
-                style: {
-                    height: "300px",
-                    width: "200px"
-                }
+                // Bootstrap utility classes for horizontal and vertical centering
+                className: "mx-auto my-auto"
             }, void 0, false, {
                 fileName: "src/components/movie-card/movie-card.jsx",
                 lineNumber: 10,
@@ -27562,14 +27566,14 @@ const MovieCard = ({ movie, onMovieClick })=>{
                         children: movie.title
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 16,
+                        lineNumber: 17,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
                         children: movie.description
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 17,
+                        lineNumber: 18,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -27577,13 +27581,13 @@ const MovieCard = ({ movie, onMovieClick })=>{
                         children: "Open"
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 18,
+                        lineNumber: 19,
                         columnNumber: 11
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 15,
+                lineNumber: 16,
                 columnNumber: 9
             }, undefined)
         ]
