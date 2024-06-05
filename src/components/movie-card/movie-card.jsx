@@ -10,7 +10,8 @@ export const MovieCard = ({ movie, onMovieClick }) => {
         <Card.Img 
           variant = "top" 
           src={movie.image}
-          style={{height: '300px', width: '200px'}}
+          // Bootstrap utility classes for horizontal and vertical centering
+          className="mx-auto my-auto"
           />
         <Card.Body>
           <Card.Title>{movie.title}</Card.Title>
