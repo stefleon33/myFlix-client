@@ -6,9 +6,9 @@ import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 // The MovieCard function component 
-export const MovieCard = ({ movie, onMovieClick }) => {
+export const MovieCard = ({ movie }) => {
     return (
-      <Card className="h-100" onClick={() => onMovieClick(movie)}>
+      <Card className="h-100">
         <Card.Img 
           variant = "top" 
           src={movie.image}
@@ -18,7 +18,7 @@ export const MovieCard = ({ movie, onMovieClick }) => {
         <Card.Body>
           <Card.Title>{movie.title}</Card.Title>
           <Card.Text>{movie.description}</Card.Text>
-          <Button onClick={() => onMovieClick(movie)}>
+          <Button variant="link">
             Open
           </Button>
         </Card.Body>
