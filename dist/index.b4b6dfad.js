@@ -27400,7 +27400,7 @@ const MainView = ()=>{
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
     const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
-    const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
+    const [token] = (0, _react.useState)(storedToken ? storedToken : null);
     const [movies, setMovies] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
         if (!token) return;
@@ -27409,7 +27409,7 @@ const MainView = ()=>{
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>response.json()).then((data)=>{
-            const moviesFromApi = data.map((movie)=>{
+            const moviesFromApi = data.movies.map((movie)=>{
                 return {
                     id: movie._id,
                     image: movie.ImagePath,
@@ -27514,7 +27514,7 @@ const MainView = ()=>{
                                 }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                     md: 8,
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
-                                        Movie: movies
+                                        movies: movies
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
                                         lineNumber: 97,
@@ -27592,7 +27592,7 @@ const MainView = ()=>{
         columnNumber: 7
     }, undefined);
 };
-_s(MainView, "/WjM596oF0v9y9togmgRao9XFtw=");
+_s(MainView, "ekeWiASRDTVu8uI7lubLsBu7yrA=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -41753,6 +41753,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SignupView", ()=>SignupView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _form = require("react-bootstrap/Form");
