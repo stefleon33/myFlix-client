@@ -27578,9 +27578,16 @@ const MovieCard = ({ movie })=>{
                         lineNumber: 20,
                         columnNumber: 11
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                        variant: "link",
-                        children: "Open"
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: `/movies/${encodeURIComponent(movie.id)}`,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                            variant: "link",
+                            children: "Open"
+                        }, void 0, false, {
+                            fileName: "src/components/movie-card/movie-card.jsx",
+                            lineNumber: 22,
+                            columnNumber: 13
+                        }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
                         lineNumber: 21,
