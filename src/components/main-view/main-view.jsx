@@ -50,8 +50,8 @@ export const MainView = () => {
   }, [token]);
   
     return(
-      <NavigationBar>
-        <BrowserRouter>
+      <BrowserRouter>
+        <NavigationBar>
           <Row className="justify-content-md-center">
             <Routes>
               <Route
@@ -122,7 +122,7 @@ export const MainView = () => {
               />
           </Routes>
         </Row>
-      </BrowserRouter>
-    </NavigationBar>
+      </NavigationBar>
+    </BrowserRouter>
   );
 };
