@@ -52,6 +52,7 @@ export const MainView = () => {
     return(
       <BrowserRouter>
         <NavigationBar>
+        </NavigationBar>
           <Row className="justify-content-md-center">
             <Routes>
               <Route
@@ -122,7 +123,6 @@ export const MainView = () => {
               />
           </Routes>
         </Row>
-      </NavigationBar>
     </BrowserRouter>
   );
 };
