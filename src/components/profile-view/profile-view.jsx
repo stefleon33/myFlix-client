@@ -7,6 +7,14 @@ import "./profile-view.scss";
 import UserInfo from './user-info';
 import FavoriteMovies from './favorite-movies';
 import UpdateUser from './update-user';
+    useEffect(() => {
+       let isMounted = true;
+       isMounted && getUser();
+       return() => {
+        isMounted = false
+       }
+      }, []);
+
 return (
     <div>
         <UserInfo  name={ user.Username} email={user.Email}/>
