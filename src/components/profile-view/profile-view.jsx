@@ -19,15 +19,23 @@ return (
     <Container>
         <Row>
             <Col xs={12} sm={4}>
-                <UserInfo  name={ user.Username} email={user.Email}/>
+                <Card>
+                    <Card.Body>
+                        <UserInfo  name={ user.Username} email={user.Email}/>
+                    </Card.Body>
+                </Card>
             </Col>
             <Col xs={12} md={8}>
-                <FavoriteMovies favoriteMovieList={favoriteMovieList}/>
+            <Card>
+                    <Card.Body>
+                        <FavoriteMovies favoriteMovieList={favoriteMovieList}/>
+                    </Card.Body>
+                </Card>
             </Col>
         </Row>
 
 
         <UpdateUser handleSubmit={ handleSubmit} handleUpdate={handleUpdate}/>
-    </div>
+    </Container>
 );
 }
