@@ -1,3 +1,8 @@
+import React, { useState, useEffect } from 'react';
+import PropTypes from "prop-types";
+import { Button} from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Form }from "react-router-dom";
 import "./profile-view.scss";
 import UserInfo from './user-info';
 import FavoriteMovies from './favorite-movies';
