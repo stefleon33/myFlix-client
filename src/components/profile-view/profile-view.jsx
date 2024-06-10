@@ -16,9 +16,17 @@ import UpdateUser from './update-user';
       }, []);
 
 return (
-    <div>
-        <UserInfo  name={ user.Username} email={user.Email}/>
-        <FavoriteMovies favoriteMovieList={favoriteMovieList}/>
+    <Container>
+        <Row>
+            <Col xs={12} sm={4}>
+                <UserInfo  name={ user.Username} email={user.Email}/>
+            </Col>
+            <Col xs={12} md={8}>
+                <FavoriteMovies favoriteMovieList={favoriteMovieList}/>
+            </Col>
+        </Row>
+
+
         <UpdateUser handleSubmit={ handleSubmit} handleUpdate={handleUpdate}/>
     </div>
 );
