@@ -95,7 +95,7 @@ export const MainView = () => {
                 element={
                   <>
                     {!user ? (
-                      <Naviage to ="/login" replace />
+                      <Navigate to ="/login" replace />
                     ) : movies.length === 0 ? (
                       <Col>The list is empty!</Col>
                     ) : (
