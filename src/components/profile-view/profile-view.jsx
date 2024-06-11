@@ -75,6 +75,22 @@ export const ProfileView = ({ localUser, movies, token}) => {
           };
     }*/
 
+    const handleUpdate = (e) => {
+        switch(e.target.type) {
+            case "text" : 
+                setUsername(e.target.value);
+                break;
+            case "password":
+                setPassword(e.target.value);
+                break;
+            case "email":
+                setEmail(e.target.value);
+                break;
+            case "date":
+                setBirthday(e.target.value);
+                default:
+        }
+    }; 
 return (
     <Container>
         <Row>
