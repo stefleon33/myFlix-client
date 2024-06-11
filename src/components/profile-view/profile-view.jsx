@@ -10,7 +10,15 @@ import { FavoriteMovies} from './favorite-movies';
 import { UpdateUser } from './update-user';
 
 export const ProfileView = ({ localUser, movies, token}) => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+  
+    const [user, setUser] = useState(storedUser? storedUser : null);
+    const [username, setUsername] =useState(storedUser.username);
+    const [password, setPassword] = useState(storedUser.password);
+    const [email, setEmail] = useState(storedUser.email);
+    const [birthday, setBirthday] = useState(storedUser.birthday);
 
+    const favoriteMovies = user?.favoriteMovies  ? movies.filter(m => user.favoriteMovies.includes(m.title)) : [];
 return (
     <Container>
         <Row>
