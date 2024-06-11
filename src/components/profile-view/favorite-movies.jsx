@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import  { MovieCard } from '../movie-card/movie-card'
 import PropTypes  from "prop-types";
 
-function FavoriteMovies({ favoriteMovieList }) {
+export const FavoriteMovies = ({user, favoriteMovies}) => {
     return (
       <div>
         <h2>Favorite Movies</h2>
@@ -24,4 +24,3 @@ function FavoriteMovies({ favoriteMovieList }) {
     )
 }
 
-export default FavoriteMovies
