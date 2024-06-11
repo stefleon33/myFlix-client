@@ -2,7 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-function UpdateUser({handleSubmit, handleUpdate}) {
+export const UpdateUser =({ formData, handleSubmit, handleUpdate, handleDeleteAccount }) =>  {
     return (
         <form className='profile-form' onSubmit={(e) => handleSubmit(e)}>
             <h2>Want to change some info?</h2>
@@ -30,5 +30,3 @@ function UpdateUser({handleSubmit, handleUpdate}) {
         </form>
     )
 }
-
-export default UpdateUser
