@@ -1,5 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { Button, Card, Row, Col } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import  { MovieCard } from '../movie-card/movie-card'
+import PropTypes  from "prop-types";
 
 function FavoriteMovies({ favoriteMovieList }) {
     return (
