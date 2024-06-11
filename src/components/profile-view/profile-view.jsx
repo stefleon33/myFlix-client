@@ -141,8 +141,22 @@ return (
                 </Card>
             </Col>
 
+            <Col xs={12} md={8}>
+            <Card>
+                <Card.Body>
+                    <Row>
+                        <Col className="mb-5" xs={12}  md={12}>
+                        {
+                        favoriteMovies && (<FavoriteMovies user={user} favoriteMovies={favoriteMovies} />)
+                        }
+                        </Col>
+                    </Row>
+                </Card.Body>
+                </Card>
+            </Col>
+        </Row>       
     </Container>
-);
+)
 }
 
 ProfileView.propTypes = {
