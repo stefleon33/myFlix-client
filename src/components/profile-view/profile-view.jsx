@@ -35,3 +35,9 @@ return (
     </Container>
 );
 }
+
+ProfileView.propTypes = {
+    localUser: PropTypes.object.isRequired,
+    movies: PropTypes.array.isRequired,
+    token: PropTypes.string.isRequired
+  };
