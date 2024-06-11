@@ -91,6 +91,33 @@ export const ProfileView = ({ localUser, movies, token}) => {
                 default:
         }
     }; 
+
+    useEffect(() => {
+        if (!token) {return;}
+  
+    fetch("https://movie-api33-c32ceac54882.herokuapp.com/users", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+        const usersFromApi = data.map((user) => {
+            return {
+                id:user._id,
+                username: user.username,
+                password: user.password,
+                email: user.email,
+                birthDate: user.birthDate,
+                favoriteMovies: user.favoriteMovies
+            };
+          });
+          setUser(usersFromApi.find((u) => u.username === localUser.username));
+          
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }, [token]);
+        
 return (
     <Container>
         <Row>
