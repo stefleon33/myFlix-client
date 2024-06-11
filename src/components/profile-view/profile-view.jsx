@@ -128,17 +128,19 @@ return (
                     </Card.Body>
                 </Card>
             </Col>
-            <Col xs={12} md={8}>
-            <Card>
+
+            <Col>
+                <Card>
                     <Card.Body>
-                        <FavoriteMovies favoriteMovieList={favoriteMovieList}/>
+                        <UpdateUser 
+                        formData={formData} 
+                        handleSubmit={ handleSubmit} 
+                        handleUpdate={handleUpdate} 
+                        />
                     </Card.Body>
                 </Card>
             </Col>
-        </Row>
 
-
-        <UpdateUser handleSubmit={ handleSubmit} handleUpdate={handleUpdate}/>
     </Container>
 );
 }
