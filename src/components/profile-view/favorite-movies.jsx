@@ -6,21 +6,25 @@ import PropTypes  from "prop-types";
 
 export const FavoriteMovies = ({user, favoriteMovies}) => {
     return (
-      <div>
-        <h2>Favorite Movies</h2>
-        {favoriteMovieList.map((movies) => {
-            return (
-                <div key={movies._id}>
-                    <img src={movies.ImapgePath} />
-                    <Link to={`/movies/${movies._id}`}>
-                        <h4>{movies.Title}</h4>
-                    </Link>
-                    <button variant="secondary" onClick={() => removeFav(movies._id)}>Remove from list</button>
-                </div>
-            )
-        })
-        }
-        </div>
+        <Card>
+            <Card.Body>
+                <Row>
+                    <Col xs={12}>
+                        <h4>Favorite Movies</h4>
+                    </Col>
+                        {favoriteMovies.map((movie) => {
+                        return (
+                            <Col xs={12} md={6} lg={3} key={movie._id} className="fav-movie">
+                               <Link to={`/movies/${movies._id}`}/>
+                                <MovieCard movie={movie} isFavorite={user.favoriteMovies.includes(movie._id)}/>
+                                <Button variant="secondary" onClick={() => removeFav(movie._id)}>Remove from list</Button>
+                            </Col>
+                        );
+                    })
+                    }
+                </Row>
+            </Card.Body>
+        </Card>
     )
 }
 
