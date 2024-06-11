@@ -27,6 +27,36 @@ export const ProfileView = ({ localUser, movies, token}) => {
         birthday: birthday
     };
 
+    
+    const handleSubmit = (event) => {
+        event.preventDefault(event);
+        fetch(`https://movie-api33-c32ceac54882.herokuapp.com/users/${user.username}`, {
+            method: "PUT",
+            body: JSON.stringify(formData),
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}` }
+              })
+              .then((response) => {
+                if (response.ok) {
+                    alert("Update successful");
+                    window.location.reload();
+    
+                    return response.json()
+                }
+                 alert("Update failed");
+                })
+                .then((user) => {
+                  if (user) {
+                    localStorage.setItem('user', JSON.stringify(user));
+                    setUser(user)
+                  }    
+                })
+                .catch((error) => {
+                  console.error(error);
+                });
+          };
+
 return (
     <Container>
         <Row>
