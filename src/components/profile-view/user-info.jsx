@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-function UserInfo({ email, name}) {
+
+export const UserInfo = ({ email, name, birthday}) => {
     return (
         <>
             <h4>Your Info</h4>
@@ -11,4 +12,3 @@ function UserInfo({ email, name}) {
     )
 }
 
-export default UserInfo
