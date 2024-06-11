@@ -127,8 +127,26 @@ export const MainView = () => {
                 </>
                 }
               />
+              <Route
+                path="/profile"
+                element={
+                  <>
+                  {!user ? (
+                    <Navigate to="/login" replace />
+                  ) : (
+                    <Col md={8}>
+                      <ProfileView
+                        localUser={user}
+                        movies={movies}
+                        token={token}
+                      />
+                    </Col>
+                  )}
+                </>
+              }
+            />
           </Routes>
         </Row>
-    </BrowserRouter>
-  );
-};
+      </BrowserRouter>
+    );
+  }
