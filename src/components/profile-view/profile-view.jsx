@@ -11,14 +11,13 @@ import { UpdateUser } from './update-user';
 
 export const ProfileView = ({ localUser, movies, token}) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
-  
-    const [user, setUser] = useState(storedUser? storedUser : null);
-    const [username, setUsername] =useState(storedUser.username);
-    const [password, setPassword] = useState(storedUser.password);
-    const [email, setEmail] = useState(storedUser.email);
-    const [birthday, setBirthday] = useState(storedUser.birthday);
 
-    const favoriteMovies = user?.favoriteMovies  ? movies.filter(m => user.favoriteMovies.includes(m.title)) : [];
+    const [user, setUser] = useState(null);
+    const [username, setUsername] =useState(storedUser.Username);
+    const [password, setPassword] = useState(storedUser.Password);
+    const [email, setEmail] = useState(storedUser.Email);
+    const [birthday, setBirthday] = useState(storedUser.Birthday);
+    const favoriteMovies = user?.FavoriteMovies  ? movies.filter(m => user.FavoriteMovies.includes(m.Title)) : [];
 
     const formData = {
         username: username,
