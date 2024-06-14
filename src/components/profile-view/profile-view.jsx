@@ -160,6 +160,7 @@ return (
                         formData={formData} 
                         handleSubmit={ handleSubmit} 
                         handleUpdate={handleUpdate} 
+                        handleDeleteAccount={handleDeleteAccount}
                         />
                     </Card.Body>
                 </Card>
