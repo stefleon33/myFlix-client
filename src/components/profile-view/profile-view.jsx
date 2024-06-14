@@ -92,6 +92,22 @@ export const ProfileView = ({ localUser, movies, token}) => {
             });
           };
 
+const handleDeleteAccount = () => {
+        fetch (`https://movie-api33-c32ceac54882.herokuapp.com/users/${user.username}`, {
+            method: "DELETE",
+            headers: { Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json"
+              }
+          }).then ((response) => {
+            if (response.ok) {
+              alert("Account deleted successfully.");
+              localStorage.clear();
+              window.location.reload();
+            } else {
+              alert("Something went wrong.");
+              }
+            });
+          };
 
     useEffect(() => {
         if (!token) {return;}
