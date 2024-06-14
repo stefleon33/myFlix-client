@@ -42257,7 +42257,7 @@ const ProfileView = ({ localUser, movies, token })=>{
             setUsername(storedUser.Username);
             setPassword(storedUser.Password);
             setEmail(storedUser.Email);
-            setBirthday(storedUser.Birthday);
+        //setBirthday(storedUser.Birthday);
         } else fetchUserData();
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
@@ -42270,8 +42270,7 @@ const ProfileView = ({ localUser, movies, token })=>{
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userInfo.UserInfo), {
                                 name: username,
-                                email: email,
-                                birthday: birthday
+                                email: email
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/profile-view.jsx",
                                 lineNumber: 151,
@@ -42433,16 +42432,6 @@ const UserInfo = ({ email, name, birthday })=>{
                 fileName: "src/components/profile-view/user-info.jsx",
                 lineNumber: 10,
                 columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: [
-                    "Birthday: ",
-                    birthday
-                ]
-            }, void 0, true, {
-                fileName: "src/components/profile-view/user-info.jsx",
-                lineNumber: 11,
-                columnNumber: 13
             }, undefined)
         ]
     }, void 0, true);
@@ -42450,8 +42439,7 @@ const UserInfo = ({ email, name, birthday })=>{
 _c = UserInfo;
 UserInfo.propTypes = {
     email: (0, _propTypesDefault.default).string,
-    name: (0, _propTypesDefault.default).string,
-    birthday: (0, _propTypesDefault.default).string
+    name: (0, _propTypesDefault.default).string
 };
 var _c;
 $RefreshReg$(_c, "UserInfo");

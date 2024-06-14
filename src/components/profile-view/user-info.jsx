@@ -8,7 +8,6 @@ export const UserInfo = ({ email, name, birthday}) => {
             <h4>My Profile</h4>
             <p>Name: {name}</p>
             <p>Email: {email}</p>
-            <p>Birthday: {birthday}</p>
         </>
     )
 }
@@ -16,5 +15,4 @@ export const UserInfo = ({ email, name, birthday}) => {
 UserInfo.propTypes = {
     email: PropTypes.string,
     name: PropTypes.string,
-    birthday: PropTypes.date
   };
