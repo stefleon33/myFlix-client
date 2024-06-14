@@ -148,7 +148,7 @@ return (
             <Col xs={12} sm={4}>
                 <Card>
                     <Card.Body>
-                        <UserInfo  name={ user.Username} email={ user.Email} birthday={user.Birthday}/>
+                        <UserInfo  name={ username} email={ email} />
                     </Card.Body>
                 </Card>
             </Col>
