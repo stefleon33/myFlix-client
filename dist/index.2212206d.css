@@ -4,13 +4,13 @@
   background-color: teal;
   border: none;
   border-radius: 4px;
+  margin-left: 15px;
   padding: 4px 12px;
 }
 
 .img {
   position: center;
-  height: 400px;
-  margin: auto auto 15px;
+  margin: 15px auto auto;
   display: block;
 }
 
