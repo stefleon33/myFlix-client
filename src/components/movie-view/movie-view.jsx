@@ -1,69 +1,65 @@
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./movie-view.scss";
-import { Button } from 'react-bootstrap';
-
+import { Button, Card, Row, Col } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 export const MovieView = ({ movies }) => {
-    const {movieId} = useParams();
-    
+    const { movieId } = useParams();
+
     const movie = movies.find((b) => b.id === movieId);
 
     return (
-      <div>
-        <div>
-          <img src={movie.image} className="img"/>
-        </div>
-        <div className="card-body bg-transparent"> 
-          <div className="fw-bold card text-center bg-transparent border-transparent">{movie.title}</div>
-          <ul className="list-group list-group-flush ">
-        <li className="list-group-item bg-transparent">
-          <span className="card-text fw-bold">Description: </span>
-          <span >{movie.description}</span></li>
-        </ul>                                       
-        </div>
-        <ul className="list-group list-group-flush ">
-        <li className="list-group-item bg-transparent">
-          <div>
-            <span className="fw-bold">Genre: </span>
-            <span>{movie.genre.name}</span>
-          </div> 
-          <span className="fw-bold">Genre Description: </span>
-          <span>{movie.genre.description}</span></li>
-        </ul>                                                                                              
-        <ul className="list-group list-group-flush">
-        <li className="list-group-item bg-transparent">
-          <div>
-            <span className="fw-bold">Director: </span>
-            <span>{movie.director.name}</span>
-          </div>
-          <div>
-            <span className="fw-bold">Bio: </span>
-            <span>{movie.director.bio}</span>
-          </div>
-          <div> 
-            <span className="fw-bold">Birth: </span>
-            <span>{movie.director.birth}</span>
-          </div>
-          <div>
-             <span className="fw-bold">Death: </span>
-              <span>{movie.director.death}</span>
-          </div>
-          </li>
-          </ul>
-         <div style= {{display: "flex", justifyContent: "center"}}>
-        <Link to= {`/`}>
-          <Button
-            className="back-button"
-            style={{ cursor: "pointer"}}>
-            Back
-          </Button>
-        </Link>
-        </div>
-      </div>
+        <Card className="card mb-3">
+            <Card.Body>
+                <Row className="row g-0">
+                    <Col md={4}>
+                        <img src={movie.image} className="img img-fluid rounded-start" style={{ maxWidth: '100%', height: 'auto' }} alt={movie.title} />
+                    </Col>
+                    <Col md={8}>
+                        <div className="card-body">
+                            <h3 className="card-title text-center">{movie.title}</h3>
+                            <div>
+                                <span className="card-text fw-bold">Description: </span>
+                                <span>{movie.description}</span>
+                            </div>
+                            <div>
+                                <span className="card-text fw-bold">Genre: </span>
+                                <span>{movie.genre.name}</span>
+                            </div>
+                            <div>
+                                <span className="card-text fw-bold">Genre Description: </span>
+                                <span>{movie.genre.description}</span>
+                            </div>
+                            <div>
+                                <span className="card-text fw-bold">Director: </span>
+                                <span>{movie.director.name}</span>
+                            </div>
+                            <div>
+                                <span className="card-text fw-bold">Bio: </span>
+                                <span>{movie.director.bio}</span>
+                            </div>
+                            <div>
+                                <span className="card-text fw-bold">Birth: </span>
+                                <span>{movie.director.birth}</span>
+                            </div>
+                            <div>
+                                <span className="card-text fw-bold">Death: </span>
+                                <span>{movie.director.death}</span>
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
+                <Row className="mt-3">
+                    <Col className="text-center">
+                        <Link to={`/users`}>
+                            <Button className="favorites-button" style={{ cursor: "pointer" }}>Add to my favorites list!</Button>
+                        </Link>
+                        <Link to={`/`}>
+                            <Button className="back-button" style={{ cursor: "pointer" }}>Back</Button>
+                        </Link>
+                    </Col>
+                </Row>
+            </Card.Body>
+        </Card>
     );
-  };
-
-
-
-  
+};
