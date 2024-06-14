@@ -109,31 +109,38 @@ const handleDeleteAccount = () => {
             });
           };
 
-    useEffect(() => {
-        if (!token) {return;}
+    const fetchUserData = () => {
+        if (!token) return;
   
-    fetch("https://movie-api33-c32ceac54882.herokuapp.com/users", {
-      headers: { Authorization: `Bearer ${token}` },
-    })
+        fetch("https://movie-api33-c32ceac54882.herokuapp.com/users", {
+          headers: { Authorization: `Bearer ${token}` },
+        })
         .then((response) => response.json())
         .then((data) => {
-        const usersFromApi = data.map((user) => {
-            return {
-                id:user._id,
-                username: user.username,
-                password: user.password,
-                email: user.email,
-                birthDate: user.birthDate,
-                favoriteMovies: user.favoriteMovies
-            };
-          });
-          setUser(usersFromApi.find((u) => u.username === localUser.username));
-          
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-    }, [token]);
+            const usersFromApi = data.find((u) => u.username === localUser.username);
+                setUser(usersFromApi);
+                setUsername(usersFromApi.Username);
+                setPassword(usersFromApi.Password);
+                setEmail(usersFromApi.Email);
+                setBirthday(usersFromApi.Birthday);
+                localStorage.setItem('user', JSON.stringify(usersFromApi));
+              })
+              .catch((error) => {
+                console.error(error);
+            });
+        };
+
+        useEffect(() =>{
+            if (storedUser) {
+                setUser(storedUser);
+                setUsername(storedUser.Username);
+                setPassword(storedUser.Password);
+                setEmail(storedUser.Email);
+                setBirthday(storedUser.Birthday);
+            } else {
+                fetchUserData();
+            }
+        }, []);
         
 return (
     <Container>
