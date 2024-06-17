@@ -166,13 +166,18 @@ return (
                 </Card>
             </Col>
 
-            <Col xs={12} md={8}>
+            <Col xs={12}>
             <Card>
                 <Card.Body>
                     <Row>
                         <Col className="mb-5" xs={12}  md={12}>
                         {
-                        favoriteMovies && (<FavoriteMovies user={user} favoriteMovies={favoriteMovies} />)
+                        favoriteMovies && (
+                            <FavoriteMovies 
+                                user={user} 
+                                favoriteMovies={favoriteMovies} 
+                                removeFav={removeFav}
+                            />)
                         }
                         </Col>
                     </Row>
