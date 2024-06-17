@@ -35,8 +35,8 @@ export const UpdateUser =({ formData, handleSubmit, handleUpdate, handleDeleteAc
                     <Form.Label>Email:</Form.Label>
                     <Form.Control
                     type="email"
-                    onChange={(e) => setEmail(e.target.value)}
                     value={formData.Email}
+                    onChange={(e) => handleUpdate(e)}
                     required
                     placeholder="Enter your email address"
                     />
@@ -46,8 +46,8 @@ export const UpdateUser =({ formData, handleSubmit, handleUpdate, handleDeleteAc
                     <Form.Label>Birthday:</Form.Label>
                     <Form.Control
                     type="date"
-                    onChange={(e) => setBirthday(e.target.value)}
                     value={formData.Birthday}
+                    onChange={(e) => handleUpdate(e)}
                     required
                     placeholder="Enter your birthday"
                     />
