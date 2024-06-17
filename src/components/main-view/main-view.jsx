@@ -59,7 +59,7 @@ export const MainView = () => {
     .then((data) => {
       console.log("Movie added to favorites", data);
     })
-  }
+  };
 
   
     return(
@@ -160,7 +160,10 @@ export const MainView = () => {
             <Route
                     path="/movies/:movieId"
                     element={
-                      <MovieView addFavoriteMovie={addFavoriteMovie} movies={movies} />
+                      <MovieView 
+                        addFavoriteMovie={addFavoriteMovie} 
+                        movies={movies} 
+                      />
                     }
                 />
           </Routes>
