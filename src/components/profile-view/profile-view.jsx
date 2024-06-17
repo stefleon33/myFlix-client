@@ -72,26 +72,16 @@ export const ProfileView = ({ localUser, movies, token}) => {
         }
     };   
 
-
-   
-
- const removeFav = (id) => {
-        fetch(`https://movie-api33-c32ceac54882.herokuapp.com/users/${user.username}/movies/${encodeURIComponent(movie.id)}`,{
-            method: "DELETE",
-            body: JSON.stringify(formData),
-            headers: {
-                "Content-Type": "application/json",
-            }
-            }).then((response) => {
-              if (response.ok) {
-                alert("Update successful");
-                window.location.reload();
-              } else {
-                alert("Update failed");
-              }
-            });
-          };
-
+const removeFav = async (movieId) => {
+    fetch("https://movie-api33-c32ceac54882.herokuapp.com/users" +user.Username + "/movies" + movieId, {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${token}`},
+    }).then((response) => response.json())
+    .then((data) => {
+      console.log("Movie removed from favorites", data);
+    })
+  };
+    
 const handleDeleteAccount = () => {
         fetch (`https://movie-api33-c32ceac54882.herokuapp.com/users/${user.Username}`, {
             method: "DELETE",
