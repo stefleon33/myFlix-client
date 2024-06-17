@@ -1,8 +1,7 @@
-import { useParams } from "react-router-dom";
 import React from "react";
+import { useParams, Link } from "react-router-dom";
 import "./movie-view.scss";
 import { Button, Card, Row, Col } from 'react-bootstrap';
-import { Link } from "react-router-dom";
 
 export const MovieView = ({ movies, addFavoriteMovie }) => {
     const { movieId } = useParams();
@@ -14,7 +13,12 @@ export const MovieView = ({ movies, addFavoriteMovie }) => {
             <Card.Body>
                 <Row className="row g-0">
                     <Col md={4}>
-                        <img src={movie.image} className="img img-fluid rounded-start" style={{ maxWidth: '100%', height: 'auto' }} alt={movie.title} />
+                        <img 
+                            src={movie.image} 
+                            className="img img-fluid rounded-start" 
+                            style={{ maxWidth: '100%', height: 'auto' }} 
+                            alt={movie.title} 
+                        />
                     </Col>
                     <Col md={8}>
                         <div className="card-body">
