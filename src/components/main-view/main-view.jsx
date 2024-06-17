@@ -19,16 +19,6 @@ export const MainView = () => {
   const [token, setToken] = useState(storedToken? storedToken : null);
   const [movies, setMovies] = useState([]);
 
-  const addFavoriteMovie = async (movieId) => {
-    fetch("https://movie-api33-c32ceac54882.herokuapp.com/users" +user.Username + "/movies" + movieId, {
-      method: "POST",
-      headers: { Authorization: `Bearer ${token}`},
-    }).then((response) => response.json())
-    .then((data) => {
-      console.log("movie added to favorites", data);
-    })
-  }
-
   useEffect(() => {
     if (!token) return;
   
@@ -59,6 +49,18 @@ export const MainView = () => {
         setMovies(moviesFromApi);
       });
   }, [token]);
+
+
+  const addFavoriteMovie = async (movieId) => {
+    fetch("https://movie-api33-c32ceac54882.herokuapp.com/users" +user.Username + "/movies" + movieId, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}`},
+    }).then((response) => response.json())
+    .then((data) => {
+      console.log("Movie added to favorites", data);
+    })
+  }
+
   
     return(
       <BrowserRouter>
@@ -155,6 +157,12 @@ export const MainView = () => {
                 </>
               }
             />
+            <Route
+                    path="/movies/:movieId"
+                    element={
+                      <MovieView addFavoriteMovie={addFavoriteMovie} movies={movies} />
+                    }
+                />
           </Routes>
         </Row>
       </BrowserRouter>
