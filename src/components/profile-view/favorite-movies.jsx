@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import  { MovieCard } from '../movie-card/movie-card'
 import PropTypes  from "prop-types";
 
-export const FavoriteMovies = ({ user, favoriteMovies }) => {
+export const FavoriteMovies = ({ user, favoriteMovies, removeFav }) => {
     return (
             <Row>
                  <Col xs={12}>
