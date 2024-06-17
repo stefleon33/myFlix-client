@@ -13,13 +13,13 @@ export const FavoriteMovies = ({ user, favoriteMovies, removeFav }) => {
                 {favoriteMovies.map((movie) => {
                     return (
                         <Col xs={12} md={6} lg={3} key={movie.id} className="fav-movie">
-                            <Link to={`/movies/${movie.Title}`}/>
+                            <Link to={`/movies/${movie.id}`}/>
                                 <MovieCard 
                                     movie={movie} 
-                                    isFavorite={user.favoriteMovies.includes(movie.title)} 
+                                    isFavorite={user.FavoriteMovies.includes(movie.id)} 
                                     />
                             <Button variant="secondary" onClick={() => removeFav(movie.id)}>Remove from list</Button>
-                        </Col>
+                        </Col> 
                     );
                 })}
             </Row>
