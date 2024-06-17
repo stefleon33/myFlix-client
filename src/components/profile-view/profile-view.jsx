@@ -17,18 +17,18 @@ export const ProfileView = ({ localUser, movies, token}) => {
     const [password, setPassword] = useState(storedUser.Password);
     const [email, setEmail] = useState(storedUser.Email);
     const [birthday, setBirthday] = useState(storedUser.Birthday);
-    const favoriteMovies = user?.FavoriteMovies  ? movies.filter(m => user.FavoriteMovies.includes(m.Title)) : [];
+    const favoriteMovies = user?.FavoriteMovies  ? movies.filter(m => user.FavoriteMovies.includes(m.id)) : [];
 
     const formData = {
-        username: username,
-        password: password,
-        email: email,
-        birthday: birthday
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthday: birthday
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-            fetch(`https://movie-api33-c32ceac54882.herokuapp.com/users/${user.username}`, {
+            fetch(`https://movie-api33-c32ceac54882.herokuapp.com/users/${user.Username}`, {
                 method: "PUT",
                 body: JSON.stringify(formData),
                 headers: {
@@ -93,7 +93,7 @@ export const ProfileView = ({ localUser, movies, token}) => {
           };
 
 const handleDeleteAccount = () => {
-        fetch (`https://movie-api33-c32ceac54882.herokuapp.com/users/${user.username}`, {
+        fetch (`https://movie-api33-c32ceac54882.herokuapp.com/users/${user.Username}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${token}`,
               "Content-Type": "application/json"
@@ -117,7 +117,7 @@ const handleDeleteAccount = () => {
         })
         .then((response) => response.json())
         .then((data) => {
-            const usersFromApi = data.find((u) => u.username === localUser.username);
+            const usersFromApi = data.find((u) => u.username === localUser.Username);
                 setUser(usersFromApi);
                 setUsername(usersFromApi.Username);
                 setPassword(usersFromApi.Password);
