@@ -3,12 +3,12 @@ import "./movie-view.scss";
 import { Button, Card, Row, Col } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
-export const MovieView = ({ movies }) => {
+export const MovieView = ({ movies, addFavoriteMovie }) => {
     const { movieId } = useParams();
 
     const movie = movies.find((b) => b.id === movieId);
 
-    return (
+      return (
         <Card className="card mb-3">
             <Card.Body>
                 <Row className="row g-0">
@@ -51,9 +51,13 @@ export const MovieView = ({ movies }) => {
                 </Row>
                 <Row className="mt-3">
                     <Col className="text-center">
-                        <Link to={`/users`}>
-                            <Button className="favorites-button" style={{ cursor: "pointer" }}>Add to my favorites list!</Button>
-                        </Link>
+                        <Button
+                            className="favorites-button"
+                            style={{ cursor: 'pointer' }}
+                            onClick={() => addFavoriteMovie(movie.id)}
+                        >
+                            Add to my favorites list!
+                        </Button>
                         <Link to={`/`}>
                             <Button className="back-button" style={{ cursor: "pointer" }}>Back</Button>
                         </Link>
