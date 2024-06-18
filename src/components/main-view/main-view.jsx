@@ -113,7 +113,11 @@ export const MainView = () => {
                       <Col>The list is empty!</Col>
                     ) : (
                       <Col md={8}>
-                        <MovieView movies={movies} />
+                        <MovieView
+                          user={user}
+                          addFavoriteMovie={addFavoriteMovie}
+                          removeFavoriteMovie={removeFavoriteMovie}
+                          movies={movies} />
                       </Col>
                     )}
                   </>
@@ -160,10 +164,11 @@ export const MainView = () => {
             <Route
                     path="/movies/:movieId"
                     element={
-                      <MovieView 
-                        addFavoriteMovie={addFavoriteMovie} 
-                        movies={movies} 
-                      />
+                      <MovieView
+                        user={user}
+                        addFavoriteMovie={addFavoriteMovie}
+                        removeFavoriteMovie={removeFavoriteMovie}
+                        movies={movies} />
                     }
                 />
           </Routes>
