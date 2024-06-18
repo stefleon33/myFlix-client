@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import  { MovieCard } from '../movie-card/movie-card'
 import PropTypes  from "prop-types";
 
-export const FavoriteMovies = ({ user, favoriteMovies, removeFav }) => {
+export const FavoriteMovies = ({ user, favoriteMovies }) => {
     return (
             <Row>
                  <Col xs={12}>
@@ -18,7 +18,6 @@ export const FavoriteMovies = ({ user, favoriteMovies, removeFav }) => {
                                     movie={movie} 
                                     isFavorite={user.FavoriteMovies.includes(movie.id)} 
                                     />
-                            <Button variant="secondary" onClick={() => removeFav(movie.id)}>Remove from list</Button>
                         </Col> 
                     );
                 })}
@@ -29,5 +28,4 @@ export const FavoriteMovies = ({ user, favoriteMovies, removeFav }) => {
 FavoriteMovies.propTypes = {
     favoriteMovies: PropTypes.array.isRequired,
     localUser: PropTypes.object,
-    removeFav: PropTypes.func
-};
+    };
