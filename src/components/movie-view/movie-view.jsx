@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import "./movie-view.scss";
 import { Button, Card, Row, Col } from 'react-bootstrap';
 
-export const MovieView = ({ movies, addFavoriteMovie }) => {
+export const MovieView = ({ movies, addFavoriteMovie, user, removeFavoriteMovie }) => {
     const { movieId } = useParams();
 
     const movie = movies.find((b) => b.id === movieId);
@@ -56,13 +56,22 @@ export const MovieView = ({ movies, addFavoriteMovie }) => {
                 </Row>
                 <Row className="mt-3">
                     <Col className="text-center">
+                        {user.FavoriteMovies.includes(movie.id) ?
+                        <Button
+                            className="favorites-button"
+                            style={{ cursor: 'pointer' }}
+                            onClick={() => removeFavoriteMovie(movie.id)}
+                        >
+                        Remove from my favorites list!
+                        </Button>
+                        :
                         <Button
                             className="favorites-button"
                             style={{ cursor: 'pointer' }}
                             onClick={() => addFavoriteMovie(movie.id)}
                         >
                             Add to my favorites list!
-                        </Button>
+                        </Button>}
                         <Link to={`/`}>
                             <Button className="back-button" style={{ cursor: "pointer" }}>Back</Button>
                         </Link>
