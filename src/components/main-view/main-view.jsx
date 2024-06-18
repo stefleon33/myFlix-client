@@ -52,7 +52,7 @@ export const MainView = () => {
 
 
   const addFavoriteMovie = async (movieId) => {
-    fetch("https://movie-api33-c32ceac54882.herokuapp.com/users" +user.Username + "/movies" + movieId, {
+    fetch("https://movie-api33-c32ceac54882.herokuapp.com/users/" +user.Username + "/movies/" + movieId, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}`},
     }).then((response) => response.json())
