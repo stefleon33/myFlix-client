@@ -9,7 +9,7 @@ import { UserInfo } from './user-info';
 import { FavoriteMovies} from './favorite-movies';
 import { UpdateUser } from './update-user';
 
-export const ProfileView = ({ localUser, movies, token}) => {
+export const ProfileView = ({ localUser, movies, token, removeFavoriteMovie}) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
 
     const [user, setUser] = useState(null);
@@ -71,17 +71,7 @@ export const ProfileView = ({ localUser, movies, token}) => {
                 default:
         }
     };   
-
-const removeFav = async (movieId) => {
-    fetch("https://movie-api33-c32ceac54882.herokuapp.com/users" +user.Username + "/movies" + movieId, {
-      method: "DELETE",
-      headers: { Authorization: `Bearer ${token}`},
-    }).then((response) => response.json())
-    .then((data) => {
-      console.log("Movie removed from favorites", data);
-    })
-  };
-    
+   
 const handleDeleteAccount = () => {
         fetch (`https://movie-api33-c32ceac54882.herokuapp.com/users/${user.Username}`, {
             method: "DELETE",
@@ -166,7 +156,7 @@ return (
                             <FavoriteMovies 
                                 user={user} 
                                 favoriteMovies={favoriteMovies} 
-                                removeFav={removeFav}
+                                removeFavoriteMovie={removeFavoriteMovie}
                             />)
                         }
                         </Col>
