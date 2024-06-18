@@ -59,7 +59,17 @@ export const MainView = () => {
     .then((data) => {
       console.log("Movie added to favorites", data);
     })
-  };
+  }
+  
+  const removeFavoriteMovie = async (movieId) => {
+    fetch("https://movie-api33-c32ceac54882.herokuapp.com/users/" +user.Username + "/movies/" + movieId, {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${token}`},
+    }).then((response) => response.json())
+    .then((data) => {
+      console.log("Movie removed from favorites", data);
+    })
+  }
 
   
     return(
