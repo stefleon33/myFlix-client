@@ -24,6 +24,7 @@ export const MainView = () => {
   const [token, setToken] = useState(storedToken? storedToken : null);
   //const [movies, setMovies] = useState([]);
 
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!token) return;
@@ -52,7 +53,7 @@ export const MainView = () => {
             featured: movie.Featured,
           };
         });
-        setMovies(moviesFromApi);
+        dispatch(setMovies(moviesFromApi));
       });
   }, [token]);
 
