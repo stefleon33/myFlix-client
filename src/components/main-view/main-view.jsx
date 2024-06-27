@@ -22,7 +22,6 @@ export const MainView = () => {
   const movies = useSelector((state) => state.movies);
   const [user, setUser] = useState(storedUser? storedUser : null);
   const [token, setToken] = useState(storedToken? storedToken : null);
-  //const [movies, setMovies] = useState([]);
 
   const dispatch = useDispatch();
 
@@ -142,7 +141,7 @@ export const MainView = () => {
                           user={user}
                           addFavoriteMovie={addFavoriteMovie}
                           removeFavoriteMovie={removeFavoriteMovie}
-                          movies={movies} />
+                        />
                       </Col>
                     )}
                   </>
