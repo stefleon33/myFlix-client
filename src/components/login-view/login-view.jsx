@@ -7,7 +7,7 @@ import { setUser, setToken } from "../../redux/reducers/user";
 export const LoginView = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch =useDispatch();
+  const dispatch = useDispatch();
   
   const handleSubmit = (event) => {
     // this prevents the default behavior of the form which is to reload the entire page
