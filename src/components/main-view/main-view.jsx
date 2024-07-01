@@ -126,9 +126,9 @@ export const MainView = () => {
                     ) : (
                       <Col md={8}>
                         <MovieView
-                          user={user}
-                          addFavoriteMovie={addFavoriteMovie}
-                          removeFavoriteMovie={removeFavoriteMovie}
+                          //user={user}
+                          //addFavoriteMovie={addFavoriteMovie}
+                          //removeFavoriteMovie={removeFavoriteMovie}
                         />
                       </Col>
                     )}
@@ -147,7 +147,9 @@ export const MainView = () => {
                   <>
                     {movies.map((movie) => (
                       <Col className="mb-4" key={movie.id} md={3}>
-                        <MovieCard movie={movie} />
+                        <MovieCard 
+                          movie={movie} 
+                        />
                       </Col>
                     ))}
                   </>
@@ -180,7 +182,8 @@ export const MainView = () => {
                         user={user}
                         addFavoriteMovie={addFavoriteMovie}
                         removeFavoriteMovie={removeFavoriteMovie}
-                        movies={movies} />
+                        movies={movies}
+                      />
                     }
                 />
           </Routes>
