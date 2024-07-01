@@ -170,7 +170,7 @@ return (
 }
 
 ProfileView.propTypes = {
-    localUser: PropTypes.object.isRequired,
-    movies: PropTypes.array.isRequired,
+    localUser: PropTypes.object,
+    movies: PropTypes.array,
     token: PropTypes.string
   };
