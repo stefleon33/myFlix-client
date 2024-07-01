@@ -2,8 +2,9 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import "./movie-view.scss";
 import { Button, Card, Row, Col } from 'react-bootstrap';
+export const MovieView = () => {
+    const movies = useSelector((state) => state.movies);
 
-export const MovieView = ({ movies, addFavoriteMovie, user, removeFavoriteMovie }) => {
     const { movieId } = useParams();
 
     const movie = movies.find((b) => b.id === movieId);
