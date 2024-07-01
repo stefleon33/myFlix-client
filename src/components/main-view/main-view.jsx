@@ -16,12 +16,10 @@ import { setUser } from "../../redux/reducers/user";
 
 
 export const MainView = () => {
-  const storedUser = JSON.parse(localStorage.getItem("user"));
-  const storedToken = localStorage.getItem("token");
-  
+   
   const movies = useSelector((state) => state.movies);
-  const [user, setUser] = useState(storedUser? storedUser : null);
-  const [token, setToken] = useState(storedToken? storedToken : null);
+  const user = useSelector((state) => state.user.user);
+  const token =useSelector((state) => state.token);
 
   const dispatch = useDispatch();
 
