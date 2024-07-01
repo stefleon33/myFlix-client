@@ -4,5 +4,5 @@ import userReducer from "./reducers/user";
 
 
 export const store = configureStore({
-reducer: { movies: moviesReducer, user: userReducer }
+    reducer: { movies: moviesReducer, user: userReducer }
 });
