@@ -2,6 +2,10 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import "./movie-view.scss";
 import { Button, Card, Row, Col } from 'react-bootstrap';
+import { useSelector } from "react-redux";
+
+
+
 export const MovieView = () => {
     const movies = useSelector((state) => state.movies);
 
