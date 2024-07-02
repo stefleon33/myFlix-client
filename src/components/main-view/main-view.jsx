@@ -175,7 +175,7 @@ export const MainView = () => {
                 </>
               }
             />
-            <Route
+             <Route
                     path="/movies/:movieId"
                     element={
                       <MovieView

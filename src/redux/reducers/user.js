@@ -21,9 +21,12 @@ const userSlice = createSlice({
         clearAuth: (state) => {
             state.user = null;
             state.token = null;
+        },
+        setFavoriteMovies: (state, action) =>{
+            state.user.FavoriteMovies = action.payload;
         }
     }
 });
 
-export const { setUser, setToken, clearAuth } = userSlice.actions;
+export const { setUser, setToken, clearAuth, setFavoriteMovies } = userSlice.actions;
 export default userSlice.reducer;
