@@ -53,7 +53,7 @@ export const MainView = () => {
         });
         dispatch(setMovies(moviesFromApi));
       });
-  }, [token]);
+  }, [token, dispatch]);
 
 
   const addFavoriteMovie = async (movieId) => {
