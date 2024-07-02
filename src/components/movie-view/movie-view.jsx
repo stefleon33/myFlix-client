@@ -14,6 +14,8 @@ export const MovieView = () => {
 
     const movie = movies.find((b) => b.id === movieId);
 
+    const isFavorite = user && user.FavoriteMovies && user.FavoriteMovies.includes(movie.id);
+
       return (
         <Card className="card mb-3">
             <Card.Body>
@@ -62,7 +64,7 @@ export const MovieView = () => {
                 </Row>
                 <Row className="mt-3">
                     <Col className="text-center">
-                        {user.FavoriteMovies.includes(movie.id) ?
+                        {isFavorite ? (
                         <Button
                             className="favorites-button"
                             style={{ cursor: 'pointer' }}
@@ -70,14 +72,15 @@ export const MovieView = () => {
                         >
                         Remove from my favorites list!
                         </Button>
-                        :
+                        ) : (
                         <Button
                             className="favorites-button"
                             style={{ cursor: 'pointer' }}
                             onClick={() => addFavoriteMovie(movie.id)}
                         >
                             Add to my favorites list!
-                        </Button>}
+                        </Button>
+                    )}
                         <Link to={`/`}>
                             <Button className="back-button" style={{ cursor: "pointer" }}>Back</Button>
                         </Link>
