@@ -63,6 +63,7 @@ export const MainView = () => {
     }).then((response) => response.json())
     .then((data) => {
       console.log("Movie added to favorites", data);
+      alert("Movie added to favorites");
       dispatch(setUser(data.user));
       localStorage.setItem('user', JSON.stringify(data.user))
     })
@@ -75,6 +76,7 @@ export const MainView = () => {
     }).then((response) => response.json())
     .then((data) => {
       console.log("Movie removed from favorites", data);
+      alert("Movie removed from favorites");
       dispatch(setUser(data.user));
       localStorage.setItem('user', JSON.stringify(data.user))
     })
