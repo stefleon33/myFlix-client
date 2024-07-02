@@ -129,7 +129,6 @@ export const MainView = () => {
                     ) : (
                       <Col md={8}>
                         <MovieView
-                          //user={user}
                           //addFavoriteMovie={addFavoriteMovie}
                           //removeFavoriteMovie={removeFavoriteMovie}
                         />
@@ -170,10 +169,8 @@ export const MainView = () => {
                     path="/movies/:movieId"
                     element={
                       <MovieView
-                        user={user}
                         addFavoriteMovie={addFavoriteMovie}
                         removeFavoriteMovie={removeFavoriteMovie}
-                        movies={movies}
                       />
                     }
                 />
