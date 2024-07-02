@@ -18,9 +18,9 @@ import { setUser } from "../../redux/reducers/user";
 
 export const MainView = () => {
    
-  const user = useSelector((state) => state.user.user);
-  const token =useSelector((state) => state.token);
   const movies = useSelector((state) => state.movies.list);
+  const user = useSelector((state) => state.user.user);
+  const token =useSelector((state) => state.user.token);
 
   const dispatch = useDispatch();
 
