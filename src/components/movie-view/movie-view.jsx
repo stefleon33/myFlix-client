@@ -9,6 +9,8 @@ import { useSelector } from "react-redux";
 export const MovieView = () => {
     const { movieId } = useParams();
     const movies = useSelector((state) => state.movies.list);
+    const user = useSelector((state) => state.user);
+
 
     const movie = movies.find((b) => b.id === movieId);
 
