@@ -131,8 +131,8 @@ export const MainView = () => {
                     ) : (
                       <Col md={8}>
                         <MovieView
-                          //addFavoriteMovie={addFavoriteMovie}
-                          //removeFavoriteMovie={removeFavoriteMovie}
+                          addFavoriteMovie={addFavoriteMovie}
+                          removeFavoriteMovie={removeFavoriteMovie}
                         />
                       </Col>
                     )}
