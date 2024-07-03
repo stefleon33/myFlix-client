@@ -31,7 +31,7 @@ export const LoginView = () => {
           if (data.user) {
             localStorage.setItem("user", JSON.stringify(data.user));
             localStorage.setItem("token", data.token);
-            dispatch(setUser(username));
+            dispatch(setUser(data.user));
           } else {
             alert("No such user");
           }

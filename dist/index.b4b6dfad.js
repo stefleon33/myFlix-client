@@ -27318,8 +27318,8 @@ const MainView = ()=>{
         }).then((response)=>response.json()).then((data)=>{
             console.log("Movie added to favorites", data);
             alert("Movie added to favorites");
-            dispatch((0, _user.setUser)(data.user));
-            localStorage.setItem("user", JSON.stringify(data.user));
+            dispatch((0, _user.setUser)(data));
+            localStorage.setItem("user", JSON.stringify(data));
         });
     };
     const removeFavoriteMovie = async (movieId)=>{
@@ -27331,8 +27331,8 @@ const MainView = ()=>{
         }).then((response)=>response.json()).then((data)=>{
             console.log("Movie removed from favorites", data);
             alert("Movie removed from favorites");
-            dispatch((0, _user.setUser)(data.user));
-            localStorage.setItem("user", JSON.stringify(data.user));
+            dispatch((0, _user.setUser)(data));
+            localStorage.setItem("user", JSON.stringify(data));
         });
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
@@ -46846,7 +46846,7 @@ const MovieView = ({ addFavoriteMovie, removeFavoriteMovie })=>{
     _s();
     const { movieId } = (0, _reactRouterDom.useParams)();
     const movies = (0, _reactRedux.useSelector)((state)=>state.movies.list);
-    const user = (0, _reactRedux.useSelector)((state)=>state.user);
+    const user = (0, _reactRedux.useSelector)((state)=>state.user.user);
     const movie = movies.find((b)=>b.id === movieId);
     const isFavorite = user && user.FavoriteMovies && user.FavoriteMovies.includes(movie.id);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
@@ -47195,7 +47195,7 @@ const LoginView = ()=>{
             if (data.user) {
                 localStorage.setItem("user", JSON.stringify(data.user));
                 localStorage.setItem("token", data.token);
-                dispatch((0, _user.setUser)(username));
+                dispatch((0, _user.setUser)(data.user));
             } else alert("No such user");
         }).catch((e)=>{
             alert("Something went wrong");
@@ -47877,7 +47877,7 @@ const ProfileView = ({ localUser, movies, token, removeFavoriteMovie })=>{
 _s(ProfileView, "xELadzwVWeu4BPsK0ceq0dDB04s=");
 _c = ProfileView;
 ProfileView.propTypes = {
-    localUser: (0, _propTypesDefault.default).string,
+    localUser: (0, _propTypesDefault.default).object,
     movies: (0, _propTypesDefault.default).array,
     token: (0, _propTypesDefault.default).string
 };
