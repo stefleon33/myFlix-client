@@ -1,11 +1,16 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useDispatch } from "react-redux";
+import { setUser, setToken } from "../../redux/reducers/user";
+import { Link } from "react-bootstrap/lib/Navbar";
+import { SignupView } from "../signup-view/signup-view";
 
-export const LoginView = ({ onLoggedIn }) => {
+export const LoginView = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  
   const handleSubmit = (event) => {
     // this prevents the default behavior of the form which is to reload the entire page
     event.preventDefault();
@@ -28,7 +33,7 @@ export const LoginView = ({ onLoggedIn }) => {
           if (data.user) {
             localStorage.setItem("user", JSON.stringify(data.user));
             localStorage.setItem("token", data.token);
-            onLoggedIn(data.user, data.token);
+            dispatch(setUser(data.user));
           } else {
             alert("No such user");
           }
@@ -63,6 +68,7 @@ export const LoginView = ({ onLoggedIn }) => {
       <Button variant="primary" type="submit">
         Submit
       </Button>
+      <Link to={SignupView}/>
     </Form>
   );
 };

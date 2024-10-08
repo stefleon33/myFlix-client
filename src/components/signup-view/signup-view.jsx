@@ -1,4 +1,4 @@
-import{ useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
@@ -53,6 +53,7 @@ export const SignupView = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          minLength="8" 
         />
       </Form.Group>
       <Form.Group controlId="formEmail">
