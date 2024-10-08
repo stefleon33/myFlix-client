@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
 import { setUser, setToken } from "../../redux/reducers/user";
+import { Link } from 'react-router-dom';
 
 export const LoginView = () => {
   const [username, setUsername] = useState("");
@@ -66,9 +67,9 @@ export const LoginView = () => {
       <Button variant="primary" type="submit">
         Submit
       </Button>
-      
+
       <div className="signup-link">
-        Don't have an account? <Link to="/signup">Sign up here</Link>
+        Don't have an account? <Link to="/signup-view">Sign up here</Link>
       </div>
     </Form>
   );
