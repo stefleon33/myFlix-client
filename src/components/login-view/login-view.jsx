@@ -66,6 +66,10 @@ export const LoginView = () => {
       <Button variant="primary" type="submit">
         Submit
       </Button>
+      
+      <div className="signup-link">
+        Don't have an account? <Link to="/signup">Sign up here</Link>
+      </div>
     </Form>
   );
 };
