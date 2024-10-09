@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
 import { setUser, setToken } from "../../redux/reducers/user";
 import { Link } from 'react-router-dom';
+import "./login-view.scss";
 
 export const LoginView = () => {
   const [username, setUsername] = useState("");
@@ -64,7 +65,10 @@ export const LoginView = () => {
           required
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button 
+        className="submit-button" 
+        variant="primary" 
+        type="submit">
         Submit
       </Button>
 
