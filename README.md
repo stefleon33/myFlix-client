@@ -10,4 +10,4 @@ This single page application is a complete web app (client-side and server-side)
 - Select a single movie for more information
 - Add/remove a movie from their list of favorites
 
-[Live website:](https://main--leonmyflix.netlify.app/)
+[Live website](https://main--leonmyflix.netlify.app/)
