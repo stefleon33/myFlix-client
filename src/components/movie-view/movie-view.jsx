@@ -81,7 +81,7 @@ export const MovieView = ({ addFavoriteMovie, removeFavoriteMovie }) => {
                             Add to my favorites list!
                         </Button>
                     )}
-                        <Link to={`/profile`}>
+                        <Link to={`/`}>
                             <Button 
                                 className="back-button" 
                                 style={{ cursor: "pointer" }}
