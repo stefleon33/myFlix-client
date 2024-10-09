@@ -15,7 +15,6 @@ export const UpdateUser =({ formData, handleSubmit, handleUpdate, handleDeleteAc
                     type="text"
                     value={formData.Username}
                     onChange={(e) => handleUpdate(e)}
-                    required
                     minLength="3" 
                     placeholder="Enter a username"
                     />
@@ -27,7 +26,6 @@ export const UpdateUser =({ formData, handleSubmit, handleUpdate, handleDeleteAc
                     type="password"
                     value={formData.Password}
                     onChange={(e) => handleUpdate(e)}
-                    required
                     placeholder="Your password must be 8 or more characters"
                     />
                 </Form.Group>
@@ -38,7 +36,6 @@ export const UpdateUser =({ formData, handleSubmit, handleUpdate, handleDeleteAc
                     type="email"
                     value={formData.Email}
                     onChange={(e) => handleUpdate(e)}
-                    required
                     placeholder="Enter your email address"
                     />
                 </Form.Group>
@@ -49,7 +46,6 @@ export const UpdateUser =({ formData, handleSubmit, handleUpdate, handleDeleteAc
                     type="date"
                     value={formData.Birthday}
                     onChange={(e) => handleUpdate(e)}
-                    required
                     placeholder="Enter your birthday"
                     />
                 </Form.Group>
