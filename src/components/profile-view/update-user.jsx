@@ -70,7 +70,7 @@ export const UpdateUser =({ formData, handleSubmit, handleUpdate, handleDeleteAc
 }
 
 UpdateUser.propTypes = {
-    formData: PropTypes.object.isRequired,
+    formData: PropTypes.object,
     handleUpdate: PropTypes.func.isRequired,
     handleSubmit: PropTypes.func.isRequired,
     handleDeleteAccount: PropTypes.func
