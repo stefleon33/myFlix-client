@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types"
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import "./update-user.scss";
 
 export const UpdateUser =({ formData, handleSubmit, handleUpdate, handleDeleteAccount }) =>  {
     return (
@@ -53,14 +54,17 @@ export const UpdateUser =({ formData, handleSubmit, handleUpdate, handleDeleteAc
                     />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button 
+                    className="submit-button"
+                    variant="primary" 
+                    type="submit">
                     Submit Changes
                 </Button>
 
                 <Button 
                     onClick={() => handleDeleteAccount()}
                     variant="outline-secondary"
-                    className="mx-3"
+                    className="delete-button"
                     >
                     Delete Account
                 </Button>
@@ -70,7 +74,7 @@ export const UpdateUser =({ formData, handleSubmit, handleUpdate, handleDeleteAc
 }
 
 UpdateUser.propTypes = {
-    formData: PropTypes.object,
+    formData: PropTypes.object.isRequired,
     handleUpdate: PropTypes.func.isRequired,
     handleSubmit: PropTypes.func.isRequired,
     handleDeleteAccount: PropTypes.func
