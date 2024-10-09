@@ -8,6 +8,12 @@ export const NavigationBar = () => {
 
   const dispatch = useDispatch();
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    dispatch(setUser(null));
+  };
+
   return (
     <Navbar expand="lg">
       <Container>
@@ -35,7 +41,7 @@ export const NavigationBar = () => {
                 <Nav.Link as={Link} to="/profile">
                     Profile
                 </Nav.Link>
-                <Nav.Link onClick={() => dispatch(setUser(null))}>
+                <Nav.Link onClick={handleLogout}>
                   Logout
                 </Nav.Link>
               </>
