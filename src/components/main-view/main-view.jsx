@@ -147,7 +147,7 @@ export const MainView = () => {
                 path="/"
                 element={
                   <>
-                    {!user ? 
+                    {!user ? (
                       <Navigate to="/login" replace />
                     ) : loading ? (
                       <Col>Loading movies...</Col>
