@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MoviesList } from "../movies-list/movies-list";
 import { MovieView } from "../movie-view/movie-view";
@@ -21,6 +21,7 @@ export const MainView = () => {
   const movies = useSelector((state) => state.movies.list);
   const user = useSelector((state) => state.user.user);
   const token =useSelector((state) => state.user.token);
+  const [loading, setLoading] = useState(true);
 
   const dispatch = useDispatch();
 
@@ -32,6 +33,7 @@ export const MainView = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        setLoading(false);
         const moviesFromApi = data.map((movie) => {
           return {
             id: movie._id,
@@ -126,6 +128,8 @@ export const MainView = () => {
                   <>
                     {!user ? (
                       <Navigate to ="/login" replace />
+                    ) : loading ? (
+                      <Col>Loading movies...</Col>
                     ) : movies.length === 0 ? (
                       <Col>The list is empty!</Col>
                     ) : (
