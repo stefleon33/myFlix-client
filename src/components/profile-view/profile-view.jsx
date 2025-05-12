@@ -87,8 +87,8 @@ export const ProfileView = ({ localUser, movies, token, removeFavoriteMovie}) =>
           }).then ((response) => {
             if (response.ok) {
               alert("Account deleted successfully.");
-              dispatch(setUser({}));
-              dispatch(setToken(""));
+              dispatch(setUser(null));
+              dispatch(setToken(null));
               localStorage.clear();
               navigate("/login");
             } else {

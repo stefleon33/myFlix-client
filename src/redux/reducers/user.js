@@ -13,10 +13,10 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         setUser: (state, action) => {
-            state.user = action.payload;
+        state.user = action.payload ?? null;
         },
-        setToken: (state, action) =>{
-            state.token = action.payload;
+        setToken: (state, action) => {
+        state.token = action.payload ?? null;
         },
         clearAuth: (state) => {
             state.user = null;
