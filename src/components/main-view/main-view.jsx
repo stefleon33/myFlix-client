@@ -175,15 +175,6 @@ export const MainView = () => {
                     </Col>
                   )}
                 </>
-              }
-            />
-             <Route
-                    path="/movies/:movieId"
-                    element={
-                      <MovieView
-                        addFavoriteMovie={addFavoriteMovie}
-                        removeFavoriteMovie={removeFavoriteMovie}
-                      />
                     }
                 />
           </Routes>
