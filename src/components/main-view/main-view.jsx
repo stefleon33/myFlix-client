@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { MoviesList } from "../movies-list/movies-list";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
@@ -137,8 +137,6 @@ export const MainView = () => {
                   <>
                     {!user ? (
                       <Navigate to ="/login" replace />
-                    )  : movies.length === 0 ? (
-                      <Col>The list is empty!</Col>
                     ) : (
                       <Col md={8}>
                         <MovieView
