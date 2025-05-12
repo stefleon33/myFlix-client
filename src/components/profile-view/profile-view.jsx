@@ -89,12 +89,8 @@ export const ProfileView = ({ localUser, movies, token, removeFavoriteMovie}) =>
               localStorage.clear();
               navigate("/login");
             } else {
-              alert("Failed to delete account.");
+              alert("Something went wrong.");
             }
-        })
-        .catch((error) => {
-            console.error("Error deleting account:", error);
-            alert("An error occurred.");
         });
     };
 
