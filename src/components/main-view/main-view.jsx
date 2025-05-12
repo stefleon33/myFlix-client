@@ -20,8 +20,6 @@ export const MainView = () => {
   const movies = useSelector((state) => state.movies.list);
   const user = useSelector((state) => state.user.user);
   const token =useSelector((state) => state.user.token);
-  const [loading, setLoading] = useState(true);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -139,9 +137,7 @@ export const MainView = () => {
                   <>
                     {!user ? (
                       <Navigate to ="/login" replace />
-                    ) : loading ? (
-                      <Col>Loading movies...</Col>
-                    ) : movies.length === 0 ? (
+                    )  : movies.length === 0 ? (
                       <Col>The list is empty!</Col>
                     ) : (
                       <Col md={8}>
@@ -160,9 +156,7 @@ export const MainView = () => {
                   <>
                     {!user ? (
                       <Navigate to="/login" replace />
-                    ) : loading ? (
-                      <Col>Loading movies...</Col>
-                    ) : movies.length === 0 ? (
+                    )  : movies.length === 0 ? (
                       <Col>The list is empty!</Col>
                     ) : (
                       <MoviesList />
