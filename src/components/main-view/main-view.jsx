@@ -25,10 +25,18 @@ export const MainView = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!token) return;
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = localStorage.getItem("token");
 
-    setLoading(true);
-  
+    if (storedUser && storedToken) {
+      dispatch(setUser(storedUser));
+      dispatch(setToken(storedToken));
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (!token) return;
+ 
     fetch("https://movie-api33-c32ceac54882.herokuapp.com/movies", {
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -54,11 +62,9 @@ export const MainView = () => {
           };
         });
         dispatch(setMovies(moviesFromApi));
-        setLoading(false);
       })
       .catch((error) => {
       console.error("Error fetching movies:", error);
-      setLoading(false);
     });
   }, [token, dispatch]);
 
