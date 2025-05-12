@@ -13,13 +13,13 @@ import { useDispatch } from "react-redux";
 import { setUser, setToken } from "../../redux/reducers/user";
 
 export const ProfileView = ({ localUser, movies, token, removeFavoriteMovie}) => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedUser = JSON.parse(localStorage.getItem("user")) || {};
 
     const [user, setUser] = useState(null);
-    const [username, setUsername] =useState(storedUser.Username);
-    const [password, setPassword] = useState(storedUser.Password);
-    const [email, setEmail] = useState(storedUser.Email);
-    const [birthday, setBirthday] = useState(storedUser.Birthday);
+    const [username, setUsername] = useState(storedUser?.Username || "");
+    const [password, setPassword] = useState(storedUser.Password || "");
+    const [email, setEmail] = useState(storedUser.Email || "");
+    const [birthday, setBirthday] = useState(storedUser.Birthday || "");
     const favoriteMovies = user?.FavoriteMovies  ? movies.filter(m => user.FavoriteMovies.includes(m.id)) : [];
 
     const formData = {
