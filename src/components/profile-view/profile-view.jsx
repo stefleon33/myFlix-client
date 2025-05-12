@@ -9,6 +9,8 @@ import { UserInfo } from './user-info';
 import { FavoriteMovies} from './favorite-movies';
 import { UpdateUser } from './update-user';
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser, setToken } from "../../redux/reducers/user";
 
 export const ProfileView = ({ localUser, movies, token, removeFavoriteMovie}) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -28,6 +30,7 @@ export const ProfileView = ({ localUser, movies, token, removeFavoriteMovie}) =>
     };
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -74,7 +77,7 @@ export const ProfileView = ({ localUser, movies, token, removeFavoriteMovie}) =>
                 default:
         }
     };   
-   
+       
     const handleDeleteAccount = () => {
         fetch (`https://movie-api33-c32ceac54882.herokuapp.com/users/${user.Username}`, {
             method: "DELETE",
@@ -89,8 +92,11 @@ export const ProfileView = ({ localUser, movies, token, removeFavoriteMovie}) =>
               localStorage.clear();
               navigate("/login");
             } else {
-              alert("Something went wrong.");
+                alert("Something went wrong.");
             }
+            })
+        .catch((error) => {
+            console.error("Error deleting account:", error);
         });
     };
 
