@@ -8,6 +8,7 @@ import "./profile-view.scss";
 import { UserInfo } from './user-info';
 import { FavoriteMovies} from './favorite-movies';
 import { UpdateUser } from './update-user';
+import { useNavigate } from "react-router-dom";
 
 export const ProfileView = ({ localUser, movies, token, removeFavoriteMovie}) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -25,6 +26,8 @@ export const ProfileView = ({ localUser, movies, token, removeFavoriteMovie}) =>
         Email: email,
         Birthday: birthday
     };
+
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -72,7 +75,7 @@ export const ProfileView = ({ localUser, movies, token, removeFavoriteMovie}) =>
         }
     };   
    
-const handleDeleteAccount = () => {
+    const handleDeleteAccount = () => {
         fetch (`https://movie-api33-c32ceac54882.herokuapp.com/users/${user.Username}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${token}`,
@@ -81,13 +84,19 @@ const handleDeleteAccount = () => {
           }).then ((response) => {
             if (response.ok) {
               alert("Account deleted successfully.");
+              dispatch(setUser(null));
+              dispatch(setToken(null));
               localStorage.clear();
-              window.location.reload();
+              navigate("/login");
             } else {
-              alert("Something went wrong.");
-              }
-            });
-          };
+              alert("Failed to delete account.");
+            }
+        })
+        .catch((error) => {
+            console.error("Error deleting account:", error);
+            alert("An error occurred.");
+        });
+    };
 
     const fetchUserData = () => {
         if (!token) return;
