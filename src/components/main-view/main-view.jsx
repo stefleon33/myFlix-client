@@ -27,13 +27,14 @@ export const MainView = () => {
 
   useEffect(() => {
     if (!token) return;
+
+    setLoading(true);
   
     fetch("https://movie-api33-c32ceac54882.herokuapp.com/movies", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())
       .then((data) => {
-        setLoading(false);
         const moviesFromApi = data.map((movie) => {
           return {
             id: movie._id,
@@ -54,7 +55,12 @@ export const MainView = () => {
           };
         });
         dispatch(setMovies(moviesFromApi));
-      });
+        setLoading(false);
+      })
+      .catch((error) => {
+      console.error("Error fetching movies:", error);
+      setLoading(false);
+    });
   }, [token, dispatch]);
 
 
