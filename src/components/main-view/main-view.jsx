@@ -175,8 +175,8 @@ export const MainView = () => {
                     </Col>
                   )}
                 </>
-                    }
-                />
+              }
+            />
           </Routes>
         </Row>
       </BrowserRouter>
